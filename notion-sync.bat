@@ -12,9 +12,23 @@ for /f "delims=" %%F in (
   goto :found
 )
 
-echo No Export zip found in %DOWNLOADS%
+echo [X] No Export zip found in %DOWNLOADS%
 goto :eof
 
 :found
 echo [OK] Latest export zip is: "!LATEST_ZIP!"
 
+:: 3. Create temp folder in Downloads
+set "TEMP_DIR=%DOWNLOADS%\notion-temp"
+if exist "%TEMP_DIR%" (
+    echo [i] Deleting existing temp folder...
+    rmdir /s /q "%TEMP_DIR%"
+)
+mkdir "%TEMP_DIR%"
+echo [OK] Created temp folder: %TEMP_DIR%
+
+:: 4. Unzip the latest export zip into temp folder using PowerShell
+echo [i] Extracting "!LATEST_ZIP!" to temp folder...
+powershell -nologo -noprofile -command "Expand-Archive -LiteralPath '%DOWNLOADS%\!LATEST_ZIP!' -DestinationPath '%TEMP_DIR%'"
+
+echo [OK] Extraction complete.
