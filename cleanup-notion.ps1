@@ -19,3 +19,31 @@ Get-ChildItem -Path $tempDir -Recurse -Directory | Sort-Object FullName -Descend
         Write-Host "Renamed folder: $($_.Name) -> $newName"
     }
 }
+Write-Host "`n[PS] Fixing internal HTML references..."
+
+# Step 1: Build old-to-new name map
+$replacementMap = @{}
+Get-ChildItem -Path $tempDir -Recurse -File | ForEach-Object {
+    if ($_.Name -match '^(.*?)(\s?[a-f0-9\-]{32,36})(\.\w+)$') {
+        $original = $_.Name
+        $cleaned = "$($matches[1])$($matches[3])"
+        $replacementMap[$original] = $cleaned
+    }
+}
+
+# Step 2: Update all HTML files
+Get-ChildItem -Path $tempDir -Recurse -Filter *.html | ForEach-Object {
+    $filePath = $_.FullName
+    $html = Get-Content $filePath -Raw
+
+    foreach ($oldName in $replacementMap.Keys) {
+        $newName = $replacementMap[$oldName]
+        # Escape regex chars in file names
+        $escapedOld = [Regex]::Escape($oldName)
+        $html = $html -replace $escapedOld, $newName
+    }
+
+    Set-Content $filePath $html -Encoding UTF8
+    Write-Host "[OK] Fixed internal links in: $($_.Name)"
+}
+
