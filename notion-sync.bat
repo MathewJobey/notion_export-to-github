@@ -45,7 +45,8 @@ echo [i] Processing HTML & mkdown files (encoding and links)...
 python "%~dp0process_notion_html.py" "%TEMP_DIR%"
 
 :: 6. Sync to GitHub folder
-set "GITHUB_DIR=C:\GitHub\Programming-Concepts-Using-Java"
+:: Change this to your GitHub folder path 👇
+set "GITHUB_DIR=C:\GitHub\Programming-Concepts-Using-Java"  
 echo.
 echo [i] Syncing cleaned files to GitHub folder...
 echo [Robocopy Sync Log - %DATE% %TIME%] > "%GITHUB_DIR%\last-robocopy.log"

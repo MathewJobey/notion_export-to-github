@@ -1,6 +1,7 @@
 # 📝Notion Export to GitHub Auto Sync Tool
 
-Automatically sync your Notion-exported HTML (and .md) pages to a GitHub repository — cleaned, fixed, committed, and pushed with one click.
+Ever needed to publish Notion notes to GitHub without broken links, ugly filenames, or manual commits? 
+Automatically sync your Notion-exported HTML (and .md) pages to a GitHub repository — cleaned, fixed, committed, and pushed with one click.just go through the installation and how to use steps and u will be okay.
 
 ---
 
@@ -79,20 +80,21 @@ notion-html-sync/
 └── README.md                    # You're reading this
 
 ```
-
----
-
-## 💡 Optional: Prebuilt .exe Version
-
-Want a single-file version that doesn’t require Python or setup?  
-Check the `releases/` folder for a prebuilt `notion-sync.exe`.
-
-**📦 [Download the EXE version here](#)**
-
 ---
 
 ## 🙌 Credits
 
 **Created by [Mathew Jobey](https://github.com/MathewJobey)**  
+
+---
+
+## 💡 Want a Portable `.exe` Version?
+
+If you'd prefer a version that runs without needing Python, Git, or setup:
+
+👉 [**Join the discussion here**](https://github.com/MathewJobey/notion_export-to-github/discussions/1)  
+React with a 👍 or leave a comment — if enough people ask, an `.exe` will be published in [Releases](https://github.com/MathewJobey/notion_export-to-github/releases)!
+
+---
 
 
