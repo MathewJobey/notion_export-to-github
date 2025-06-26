@@ -40,6 +40,10 @@ echo.
 echo [i] Cleaning filenames and folders...
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0cleanup-notion.ps1" "%TEMP_DIR%"
 
+:: 5. Process HTML files (convert to UTF-8 and fix links)
+echo.
+echo [i] Processing HTML files (encoding and links)...
+python "%~dp0process_notion_html.py" "%TEMP_DIR%"
 :step5
 
 :: Set destination GitHub folder
@@ -53,4 +57,5 @@ echo [Robocopy Sync Log - %DATE% %TIME%] > "%GITHUB_DIR%\last-robocopy.log"
 robocopy "%TEMP_DIR%" "%GITHUB_DIR%" * /E /PURGE /XD ".git" /XF "README.md" "LICENSE" ".gitignore" ".gitattributes" >> "%GITHUB_DIR%\last-robocopy.log"
  ::make sure to exclude any files you don't want to sync.
 echo [OK] Sync complete. Robocopy log saved to last-robocopy.log
+
 
