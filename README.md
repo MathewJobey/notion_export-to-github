@@ -54,7 +54,8 @@ Automatically sync your Notion-exported HTML (and .md) pages to a GitHub reposit
 ## 🚀 How to Use
 
 1.  Export your Notion workspace (as in this case) **HTML** and place the `.zip` file in your **Downloads** folder.
-![alt text](image.png)
+![Screenshot 2025-06-26 150128](https://github.com/user-attachments/assets/2562c072-6da4-456c-8150-631669a1af6b)
+
 
 2.  Run `notion-sync.bat` (double-click or run from terminal).
 
