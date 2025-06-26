@@ -80,9 +80,19 @@ notion-html-sync/
 
 ```
 
+---
+
 ## 💡 Optional: Prebuilt .exe Version
 
 Want a single-file version that doesn’t require Python or setup?  
 Check the `releases/` folder for a prebuilt `notion-sync.exe`.
 
 **📦 [Download the EXE version here](#)**
+
+---
+
+## 🙌 Credits
+
+**Created by [Mathew Jobey](https://github.com/MathewJobey)**  
+
+
